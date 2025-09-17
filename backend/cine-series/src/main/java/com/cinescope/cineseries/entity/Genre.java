@@ -1,4 +1,4 @@
-package com.cinescope.cineseries.model;
+package com.cinescope.cineseries.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -20,6 +20,9 @@ public class Genre {
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "genre", cascade = CascadeType.ALL)
+    // One genre -> many series
+    @OneToMany(mappedBy = "genre", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Set<Series> series;
 }

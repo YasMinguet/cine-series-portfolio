@@ -1,7 +1,8 @@
-package com.cinescope.cineseries.model;
+package com.cinescope.cineseries.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -20,17 +21,22 @@ public class Rating {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private AppUser user;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "series_id", nullable = false)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Series series;
 
-    @Column(nullable = false)
+    @Column(name = "score", precision = 3, scale = 1, nullable = false)
     private BigDecimal score;
 
-    @Column(name = "created_at")
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 }

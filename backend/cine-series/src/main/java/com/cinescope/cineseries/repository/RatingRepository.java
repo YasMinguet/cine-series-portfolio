@@ -1,6 +1,6 @@
 package com.cinescope.cineseries.repository;
 
-import com.cinescope.cineseries.model.Rating;
+import com.cinescope.cineseries.entity.Rating;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

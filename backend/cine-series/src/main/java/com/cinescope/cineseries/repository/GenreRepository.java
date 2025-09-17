@@ -1,6 +1,6 @@
 package com.cinescope.cineseries.repository;
 
-import com.cinescope.cineseries.model.Genre;
+import com.cinescope.cineseries.entity.Genre;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

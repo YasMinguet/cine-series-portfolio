@@ -57,12 +57,6 @@ INSERT INTO Series (title, description, release_year, poster_url, genre_id) VALU
 ('Dark', 'Una pequeña ciudad descubre secretos y paradojas temporales.', 2017, 'https://image.tmdb.org/t/p/w500/y4mYwH5eVrXx4rBCVjvWqMwXQ0g.jpg', 4),
 ('The Queen’s Gambit', 'Una joven prodigio del ajedrez enfrenta sus demonios personales.', 2020, 'https://image.tmdb.org/t/p/w500/yeNw7e2Xc3Y2G0vwqGPOWzXK6Q.jpg', 1);
 
--- Usuarios (contraseñas hasheadas con BCrypt, password real: '123456')
-INSERT INTO User (username, password, role) VALUES
-('Antonia', '$2a$10$Dow1MfE4KfR/dX1C/0B1Eez8TO/ePdpWwLwYkPO9/pOiwE5DcF4Cy', 'USER'),
-('admin', '$2a$10$Dow1MfE4KfR/dX1C/0B1Eez8TO/ePdpWwLwYkPO9/pOiwE5DcF4Cy', 'ADMIN'),
-('Paquita', '$2a$10$Dow1MfE4KfR/dX1C/0B1Eez8TO/ePdpWwLwYkPO9/pOiwE5DcF4Cy', 'USER');
-
 -- Ratings de ejemplo
 INSERT INTO Rating (user_id, series_id, score) VALUES
 (1, 1, 9.5),
