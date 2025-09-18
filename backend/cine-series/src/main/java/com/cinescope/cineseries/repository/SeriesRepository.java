@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Repository
@@ -17,5 +18,5 @@ public interface SeriesRepository extends JpaRepository<Series, Long> {
 
     @Modifying
     @Query("UPDATE Series s SET s.averageRating = :average WHERE s.id = :seriesId")
-    void updateAverageRating(@Param("seriesId") Long seriesId, @Param("average") Double average);
+    void updateAverageRating(@Param("seriesId") Long seriesId, @Param("average") BigDecimal average);
 }
