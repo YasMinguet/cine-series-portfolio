@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -30,7 +31,7 @@ public class Series {
     @Column(name = "poster_url")
     private String posterUrl;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "genre_id")
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
@@ -42,5 +43,5 @@ public class Series {
     @OneToMany(mappedBy = "series", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private Set<Rating> ratings;
+    private Set<Rating> ratings = new HashSet<>();
 }

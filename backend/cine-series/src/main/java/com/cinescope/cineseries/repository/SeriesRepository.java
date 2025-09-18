@@ -13,6 +13,7 @@ import java.util.List;
 public interface SeriesRepository extends JpaRepository<Series, Long> {
     // Ejemplo: buscar series por género
     List<Series> findByGenreId(Long genreId);
+    List<Series> findTop10ByOrderByAverageRatingDesc();
 
     @Modifying
     @Query("UPDATE Series s SET s.averageRating = :average WHERE s.id = :seriesId")

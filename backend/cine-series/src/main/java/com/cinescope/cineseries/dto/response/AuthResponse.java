@@ -1,4 +1,4 @@
-package com.cinescope.cineseries.dto;
+package com.cinescope.cineseries.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
