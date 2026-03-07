@@ -8,6 +8,7 @@
         <groupId>com.cinescope</groupId>
         <artifactId>cine-series-microservices</artifactId>
         <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>gateway-service</artifactId>
@@ -29,7 +30,7 @@
         </dependency>
         <dependency>
             <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
         </dependency>
     </dependencies>
 </project>
