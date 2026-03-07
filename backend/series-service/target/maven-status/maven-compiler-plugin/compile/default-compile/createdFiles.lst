@@ -1,0 +1,14 @@
+com\cinescope\series\dto\response\SeriesResponse.class
+com\cinescope\series\entity\Genre$GenreBuilder.class
+com\cinescope\series\entity\Series.class
+com\cinescope\series\dto\request\GenreRequest.class
+com\cinescope\series\exception\GlobalExceptionHandler.class
+com\cinescope\series\controller\SeriesController.class
+com\cinescope\series\repository\SeriesRepository.class
+com\cinescope\series\entity\Genre.class
+com\cinescope\series\dto\request\SeriesRequest.class
+com\cinescope\series\dto\response\GenreResponse.class
+com\cinescope\series\entity\Series$SeriesBuilder.class
+com\cinescope\series\service\SeriesService.class
+com\cinescope\series\repository\GenreRepository.class
+com\cinescope\series\SeriesServiceApplication.class

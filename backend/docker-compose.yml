@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  config-service:
+    build: ./config-service
+    ports:
+      - "8888:8888"
+    networks:
+      - microservices-net
+
+  discovery-service:
+    build: ./discovery-service
+    ports:
+      - "8761:8761"
+    depends_on:
+      - config-service
+    networks:
+      - microservices-net
+
+  gateway-service:
+    build: ./gateway-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - discovery-service
+    networks:
+      - microservices-net
+
+  user-service:
+    build: ./user-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - discovery-service
+    networks:
+      - microservices-net
+
+  series-service:
+    build: ./series-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - discovery-service
+    networks:
+      - microservices-net
+
+  rating-service:
+    build: ./rating-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      - discovery-service
+    networks:
+      - microservices-net
+
+networks:
+  microservices-net:
+    driver: bridge
