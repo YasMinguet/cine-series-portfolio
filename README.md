@@ -3,7 +3,8 @@
 > Proyecto portfolio de arquitectura de microservicios con Spring Boot y Spring Cloud
 
 [![Estado](https://img.shields.io/badge/Estado-100%25%20Funcional-brightgreen)]()
-[![Tests](https://img.shields.io/badge/Tests-8%2F8%20Passed-success)]()
+[![E2E Smoke](https://img.shields.io/badge/E2E%20Smoke-8%2F8%20Passed-success)]()
+[![Unit Tests](https://img.shields.io/badge/Unit%20Tests-62%20Passed-success)]()
 [![Java](https://img.shields.io/badge/Java-17-orange)]()
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.0-green)]()
 [![Docker](https://img.shields.io/badge/Docker-Ready-blue)]()
@@ -23,7 +24,7 @@ docker compose up -d
 # 3. Esperar inicio (60 segundos)
 Start-Sleep 60
 
-# 4. Ejecutar tests
+# 4. Ejecutar test E2E/smoke (valida flujo completo)
 cd ..
 .\test-endpoints.ps1
 
@@ -117,15 +118,41 @@ Start-Process http://localhost:8761
 
 ## 🧪 Tests
 
-### Ejecutar tests automatizados
+El proyecto incluye **dos tipos de pruebas**:
+
+1. **Tests unitarios (Maven)**: validan lógica por clase/capa (service, controller, handlers, etc.).
+2. **Tests E2E/smoke (`test-endpoints.ps1`)**: validan el flujo completo de la API con servicios levantados.
+
+### Tests unitarios (Maven)
+
+```powershell
+cd backend
+mvn test
+```
+
+**Última ejecución verificada:** 62 tests unitarios pasados (`BUILD SUCCESS`) ✅
+
+### Tests E2E / smoke (script de endpoints)
 
 ```powershell
 .\test-endpoints.ps1
 ```
 
-**Resultado última ejecución:** 8/8 tests pasados ✅
+**Última ejecución verificada:** 8/8 pruebas E2E pasadas ✅
 
-### Diagnóstico rápido
+### Ejecutar tests unitarios por servicio
+
+```powershell
+cd backend
+mvn -pl user-service test
+mvn -pl series-service test
+mvn -pl rating-service test
+mvn -pl gateway-service test
+mvn -pl discovery-service test
+mvn -pl config-service test
+```
+
+### Diagnóstico rápido (estado de servicios)
 
 ```powershell
 .\diagnostico-simple.ps1
@@ -204,7 +231,8 @@ Start-Process http://localhost:8761
 - ✅ Compilación: SUCCESS (26.5s)
 - ✅ Docker: 6/6 contenedores UP
 - ✅ Eureka: 4/4 servicios registrados
-- ✅ Tests: 8/8 pasados
+- ✅ Tests unitarios: 62 pasados
+- ✅ Tests E2E/smoke: 8/8 pasados
 - ✅ OpenAPI: 3/3 servicios documentados
 - ✅ Health: 4/4 servicios UP
 
@@ -223,4 +251,3 @@ Proyecto portfolio de demostración.
 ---
 
 **⭐ Proyecto validado y funcional - Listo para portfolio ⭐**
-
