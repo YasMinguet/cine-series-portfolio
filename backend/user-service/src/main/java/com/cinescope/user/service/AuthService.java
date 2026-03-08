@@ -40,7 +40,7 @@ public class AuthService {
         String token = jwtService.generateToken(user.getUsername());
 
         log.info("Usuario registrado exitosamente: {}", user.getUsername());
-        return new AuthResponse(token, user.getUsername(), user.getRole());
+        return new AuthResponse(user.getId(), token, user.getUsername(), user.getRole());
     }
 
     public AuthResponse login(AuthRequest request) {
@@ -62,6 +62,6 @@ public class AuthService {
         String token = jwtService.generateToken(user.getUsername());
 
         log.info("Usuario autenticado exitosamente: {}", user.getUsername());
-        return new AuthResponse(token, user.getUsername(), user.getRole());
+        return new AuthResponse(user.getId(), token, user.getUsername(), user.getRole());
     }
 }
