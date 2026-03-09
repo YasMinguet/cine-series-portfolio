@@ -250,4 +250,25 @@ Proyecto portfolio de demostración.
 
 ---
 
-**⭐ Proyecto validado y funcional - Listo para portfolio ⭐**
+## 🗺️ Roadmap
+
+### ✅ Completado
+- Backend completo con 6 microservicios
+- Autenticación JWT
+- Tests unitarios y E2E
+- Documentación OpenAPI/Swagger
+
+### 🚧 En Progreso
+- Frontend con Angular
+- Mejoras de seguridad y validación
+- Optimizaciones de rendimiento
+
+### 📋 Futuro
+- Migración a PostgreSQL
+- Tests de integración avanzados
+- CI/CD Pipeline
+- Métricas con Micrometer/Prometheus
+
+---
+
+**⭐ Backend validado y funcional - Frontend en desarrollo ⭐**
